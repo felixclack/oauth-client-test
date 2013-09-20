@@ -1,0 +1,16 @@
+development: &pg
+  adapter: postgresql
+  username: <%= ENV['USER'].to_s.strip %>
+  password:
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  database: eindx_test_service_development
+
+test: &test
+  <<: *pg
+  database: eindx_test_service_test
+
+cucumber:
+  <<: *test
+
